@@ -5,189 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockAI Dev - Tech IQ Challenge - Test 01</title>
     
+    <link rel="stylesheet" href="style.css">
+    
     <meta property="og:title" content="RockAI Dev - Tech IQ Challenge - Test 01">
     <meta property="og:description" content="I just scored high on RockAI Dev's Tech IQ Challenge! Test your core logic and algorithms.">
-    <meta property="og:image" content="https://yourcompany.com/images.jpg"> <meta property="og:url" content="https://yourcompany.com/tech-iq-test-01.html"> <style>
-        /* ======================== CSS Styles ======================== */
-        :root {
-            --primary-dark: #0A192F; 
-            --accent-color: #4A90E2; 
-            --text-light: #F0F0F0; 
-            --secondary-text: #B0C4DE; 
-            --star-color: #E0E0E0; 
-        }
+    <meta property="og:image" content="https://YOUR-REAL-DOMAIN.com/RockAI-IQ-Tests/images.jpg"> 
+    <meta property="og:url" content="https://YOUR-REAL-DOMAIN.com/RockAI-IQ-Tests/TechIQ_Test_01.html"> 
 
-        body {
-            background-color: var(--primary-dark);
-            font-family: 'Arial', sans-serif;
-            color: var(--text-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden; 
-            position: relative; 
-            text-align: left;
-
-            /* --- FIXED: Static Background Image (images.jpg) --- */
-            background-image: url('images.jpg'); /* Using the exact uploaded filename */
-            background-size: contain; 
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed; 
-            background-blend-mode: multiply; 
-        }
-        
-        /* Overlay for readability */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); 
-            z-index: -2; 
-        }
-
-        /* -------------------- REMOVED STARRY BACKGROUND CSS -------------------- */
-        .stars { /* REMOVED */ display: none; }
-        /* @keyframes stars-move... (REMOVED) */
-
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: rgba(10, 25, 47, 0.9); 
-            border-radius: 12px;
-            box-shadow: 0 4px 30px rgba(74, 144, 226, 0.3); 
-            position: relative; 
-            z-index: 10; 
-            width: 100%;
-        }
-
-        h1 {
-            color: var(--accent-color);
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2em;
-            text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
-        }
-
-        .question-container {
-            margin-bottom: 25px;
-            padding: 15px;
-            border-bottom: 1px solid var(--primary-dark);
-            background-color: #1a2c42; 
-            border-radius: 8px;
-        }
-
-        .question-container p {
-            font-weight: bold;
-            font-size: 1.05em;
-            margin-bottom: 12px;
-            color: var(--text-light);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            padding: 5px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-            color: var(--secondary-text);
-        }
-
-        label:hover {
-            background-color: rgba(74, 144, 226, 0.1);
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-            accent-color: var(--accent-color);
-        }
-
-        .cta-button {
-            width: 100%;
-            padding: 15px;
-            background-color: var(--accent-color);
-            color: var(--primary-dark);
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 25px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
-
-        .cta-button:hover {
-            background-color: #79aee8;
-            transform: scale(1.01);
-        }
-
-        /* Results Section */
-        #results {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            border: 2px solid var(--accent-color);
-            border-radius: 12px;
-            background-color: #1a2c42;
-        }
-
-        #score-display {
-            font-size: 3.5em;
-            color: var(--accent-color);
-            font-weight: bold;
-            display: block;
-            margin: 10px 0 20px;
-            text-shadow: 0 0 15px rgba(74, 144, 226, 0.7);
-        }
-
-        /* Hide the text box and copy button since we are using direct sharing */
-        #share-message-text, .copy-text-btn {
-            display: none !important;
-        }
-        
-        #share-instructions {
-            color: var(--secondary-text); 
-            text-align: left; 
-            max-width: 400px; 
-            margin: 10px auto;
-            list-style-type: none; /* Remove numbering */
-            padding-left: 0;
-            font-size: 1.1em;
-        }
-
-        #share-instructions li {
-            margin-bottom: 8px;
-        }
-
-        .linkedin-share {
-            display: inline-block;
-            background-color: #0077B5; 
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .linkedin-share:hover {
-            background-color: #0099D4;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>RockAI Dev - IQ Challenge - Test 01</h1>
+        <h1>RockAI Dev - Tech IQ Challenge - Test 01</h1>
         <p style="color: var(--secondary-text); text-align: center;">20 questions on Core Logic, Algorithms, and System Fundamentals.</p>
 
         <form id="iq-test-form">
@@ -198,7 +26,7 @@
                 <label><input type="radio" name="q1" value="C"> 60</label>
                 <label><input type="radio" name="q1" value="D"> 72</label>
             </div>
-
+            
             <div class="question-container" data-correct-answer="A">
                 <p>2. What is the next element in the sequence? A, C, F, J, O, ?</p>
                 <label><input type="radio" name="q2" value="A" required> U</label>
@@ -371,10 +199,12 @@ PRINT total</pre>
             <span id="score-display">0</span> / 20
             
             <p style="margin-top: 30px;"><strong>Share Your Achievement on LinkedIn:</strong></p>
-            <ul id="share-instructions">
-                <li>Click "**Share on LinkedIn**" below.</li>
-                <li>The post text (with your score) and the RockAI Dev logo will appear automatically!</li>
-            </ul>
+            <ol style="color: var(--secondary-text); text-align: left; max-width: 400px; margin: 10px auto;">
+                <li>Click "<strong>Copy Share Text</strong>" below.</li>
+                <li>Click "<strong>Share on LinkedIn</strong>" (A new window will open).</li>
+                <li>In the LinkedIn post window, <strong>Paste</strong> the copied text.</li>
+                <li>The RockAI Dev logo will automatically appear as the post's preview image!</li>
+            </ol>
             
             <p id="share-message-text"></p>
             <button class="copy-text-btn" onclick="copyShareText()">Copy Share Text</button>
@@ -395,7 +225,7 @@ PRINT total</pre>
 
         const totalQuestions = Object.keys(correctAnswers).length;
         // MUST BE UPDATED to the actual URL after deployment!
-        const testUrl = "https://yourcompany.com/tech-iq-test-01.html"; 
+        const testUrl = "https://YOUR-REAL-DOMAIN.com/RockAI-IQ-Tests/TechIQ_Test_01.html"; 
 
 
         function calculateScore() {
@@ -437,28 +267,23 @@ PRINT total</pre>
             
             // Append the URL and hashtags to the custom text
             const finalShareMessage = `${shareText} Take the RockAI Dev challenge now: ${testUrl} #RockAIDev #TechIQ #Programming #Algorithm`;
+            document.getElementById('share-message-text').textContent = finalShareMessage;
 
-            // --- NEW: Setting up direct LinkedIn Share link with pre-filled text ---
-            // LinkedIn's official share API only takes URL and Title. It does NOT officially support pre-filling text.
-            // HOWEVER, we will use the standard method to share the URL, and rely on the og:tags for the image.
-            
-            // For platforms that support text pre-fill (like Twitter):
-            // const encodedShareText = encodeURIComponent(finalShareMessage);
-            // const linkedinLink = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedShareText}`; // Not reliable for text
-
-            // Using the standard off-site share which guarantees the URL/Image is shared:
+            // Set up LinkedIn share link (opens the blank share window)
             const encodedUrl = encodeURIComponent(testUrl);
             const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-
             document.getElementById('linkedin-share-button').href = linkedinLink;
-            
-            // We set the text here just in case, but rely on the og:tags for image and title/description.
-            // (Note: The user will still need to manually type/paste the score text if they want it fully custom,
-            // but the logo and link will be correct).
-            document.getElementById('share-message-text').textContent = finalShareMessage;
         }
 
-        // Removed copyShareText function as it is no longer the primary method
+        function copyShareText() {
+            const textToCopy = document.getElementById('share-message-text').textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("✅ Share text copied! Paste it into the LinkedIn share window. The RockAI Dev logo will automatically appear as the link preview!");
+            }).catch(err => {
+                console.error('Failed to copy text:', err);
+                prompt("Please manually copy the text below:", textToCopy);
+            });
+        }
     </script>
 </body>
 </html>
