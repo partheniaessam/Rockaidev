@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockAI Dev - Tech IQ Challenge - Test 01</title>
+    
+    <meta property="og:title" content="RockAI Dev - Tech IQ Challenge - Test 01">
+    <meta property="og:description" content="I just scored high on RockAI Dev's Tech IQ Challenge! Test your core logic and algorithms.">
+    <meta property="og:image" content="https://yourcompany.com/images.jpg"> <meta property="og:url" content="https://yourcompany.com/tech-iq-test-01.html"> <style>
+        /* ======================== CSS Styles ======================== */
+        :root {
+            --primary-dark: #0A192F; 
+            --accent-color: #4A90E2; 
+            --text-light: #F0F0F0; 
+            --secondary-text: #B0C4DE; 
+            --star-color: #E0E0E0; 
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            font-family: 'Arial', sans-serif;
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden; 
+            position: relative; 
+            text-align: left;
+
+            /* --- FIXED: Static Background Image (images.jpg) --- */
+            background-image: url('images.jpg'); /* Using the exact uploaded filename */
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed; 
+            background-blend-mode: multiply; 
+        }
+        
+        /* Overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: -2; 
+        }
+
+        /* -------------------- REMOVED STARRY BACKGROUND CSS -------------------- */
+        .stars { /* REMOVED */ display: none; }
+        /* @keyframes stars-move... (REMOVED) */
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: rgba(10, 25, 47, 0.9); 
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(74, 144, 226, 0.3); 
+            position: relative; 
+            z-index: 10; 
+            width: 100%;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+        }
+
+        .question-container {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-bottom: 1px solid var(--primary-dark);
+            background-color: #1a2c42; 
+            border-radius: 8px;
+        }
+
+        .question-container p {
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            color: var(--secondary-text);
+        }
+
+        label:hover {
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: var(--accent-color);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 25px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: #79aee8;
+            transform: scale(1.01);
+        }
+
+        /* Results Section */
+        #results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            background-color: #1a2c42;
+        }
+
+        #score-display {
+            font-size: 3.5em;
+            color: var(--accent-color);
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 20px;
+            text-shadow: 0 0 15px rgba(74, 144, 226, 0.7);
+        }
+
+        /* Hide the text box and copy button since we are using direct sharing */
+        #share-message-text, .copy-text-btn {
+            display: none !important;
+        }
+        
+        #share-instructions {
+            color: var(--secondary-text); 
+            text-align: left; 
+            max-width: 400px; 
+            margin: 10px auto;
+            list-style-type: none; /* Remove numbering */
+            padding-left: 0;
+            font-size: 1.1em;
+        }
+
+        #share-instructions li {
+            margin-bottom: 8px;
+        }
+
+        .linkedin-share {
+            display: inline-block;
+            background-color: #0077B5; 
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .linkedin-share:hover {
+            background-color: #0099D4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RockAI Dev - IQ Challenge - Test 01</h1>
+        <p style="color: var(--secondary-text); text-align: center;">20 questions on Core Logic, Algorithms, and System Fundamentals.</p>
+
+        <form id="iq-test-form">
+            <div class="question-container" data-correct-answer="B">
+                <p>1. What is the next number in the sequence? 5, 6, 8, 12, 20, 36, ?</p>
+                <label><input type="radio" name="q1" value="A" required> 52</label>
+                <label><input type="radio" name="q1" value="B"> 68</label>
+                <label><input type="radio" name="q1" value="C"> 60</label>
+                <label><input type="radio" name="q1" value="D"> 72</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p>2. What is the next element in the sequence? A, C, F, J, O, ?</p>
+                <label><input type="radio" name="q2" value="A" required> U</label>
+                <label><input type="radio" name="q2" value="B"> T</label>
+                <label><input type="radio" name="q2" value="C"> S</label>
+                <label><input type="radio" name="q2" value="D"> V</label>
+            </div>
+            
+            <div class="question-container" data-correct-answer="C">
+                <p>3. Access is granted if (User is Active) AND ((Password is Correct) OR (2FA Token is Valid)). If the 2FA Token is **invalid** and access is **granted**, what must be true?</p>
+                <label><input type="radio" name="q3" value="A" required> User is Inactive.</label>
+                <label><input type="radio" name="q3" value="B"> Password is Correct OR User is Active.</label>
+                <label><input type="radio" name="q3" value="C"> User is Active AND Password is Correct.</label>
+                <label><input type="radio" name="q3" value="D"> Password is Incorrect.</label>
+            </div>
+            
+            <div class="question-container" data-correct-answer="B">
+                <p>4. An algorithm has a time complexity of $O(n^2)$. If it takes 4 seconds for 1,000 items, how long will it take for 2,000 items?</p>
+                <label><input type="radio" name="q4" value="A" required> 8 seconds</label>
+                <label><input type="radio" name="q4" value="B"> 16 seconds</label>
+                <label><input type="radio" name="q4" value="C"> 20 seconds</label>
+                <label><input type="radio" name="q4" value="D"> 32 seconds</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>5. What is the result of the binary addition $1011_2 + 0101_2$?</p>
+                <label><input type="radio" name="q5" value="A" required> $1111_2$</label>
+                <label><input type="radio" name="q5" value="B"> $10000_2$</label>
+                <label><input type="radio" name="q5" value="C"> $11000_2$</label>
+                <label><input type="radio" name="q5" value="D"> $1110_2$</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>6. What is the output of this loop? (Result: $(-1)+2+(-3)+4+(-5)$)</p>
+                <pre style="color: var(--secondary-text); background: #0A192F; padding: 10px; border-radius: 4px;">total = 0
+FOR i FROM 1 TO 5:
+    IF i % 2 == 0: total = total + i
+    ELSE: total = total - i
+PRINT total</pre>
+                <label><input type="radio" name="q6" value="A" required> 0</label>
+                <label><input type="radio" name="q6" value="B"> 3</label>
+                <label><input type="radio" name="q6" value="C"> -3</label>
+                <label><input type="radio" name="q6" value="D"> 5</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>7. What is the main **disadvantage** of adding too many indices to a relational database table?</p>
+                <label><input type="radio" name="q7" value="A" required> It decreases the speed of SELECT queries.</label>
+                <label><input type="radio" name="q7" value="B"> It significantly slows down INSERT, UPDATE, and DELETE operations.</label>
+                <label><input type="radio" name="q7" value="C"> It requires more network bandwidth.</label>
+                <label><input type="radio" name="q7" value="D"> It limits the number of connected users.</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>8. What is the primary reason for placing a **Load Balancer** in front of multiple application servers?</p>
+                <label><input type="radio" name="q8" value="A" required> To encrypt all user passwords.</label>
+                <label><input type="radio" name="q8" value="B"> To store static assets like images.</label>
+                <label><input type="radio" name="q8" value="C"> To distribute traffic and provide **fault tolerance** (redundancy).</label>
+                <label><input type="radio" name="q8" value="D"> To cache database results.</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>9. In most programming languages, a variable declared **inside a function** is typically accessible:</p>
+                <label><input type="radio" name="q9" value="A" required> Globally, by any part of the program.</label>
+                <label><input type="radio" name="q9" value="B"> Only within that specific function.</label>
+                <label><input type="radio" name="q9" value="C"> By that function and any function it calls.</label>
+                <label><input type="radio" name="q9" value="D"> Only after the function returns.</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>10. What is the primary purpose of a **base case** in a recursive function?</p>
+                <label><input type="radio" name="q10" value="A" required> To make the function run faster.</label>
+                <label><input type="radio" name="q10" value="B"> To define the function's return value type.</label>
+                <label><input type="radio" name="q10" value="C"> To prevent infinite execution (Stack Overflow).</label>
+                <label><input type="radio" name="q10" value="D"> To initialize input parameters.</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>11. What is the decimal equivalent of the hexadecimal number **$2\text{A}$**?</p>
+                <label><input type="radio" name="q11" value="A" required> 32</label>
+                <label><input type="radio" name="q11" value="B"> 42</label>
+                <label><input type="radio" name="q11" value="C"> 52</label>
+                <label><input type="radio" name="q11" value="D"> 62</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>12. Which data structure is optimized for **O(1) average-case lookup time** and is ideal for caching systems?</p>
+                <label><input type="radio" name="q12" value="A" required> Linked List</label>
+                <label><input type="radio" name="q12" value="B"> Balanced Tree</label>
+                <label><input type="radio" name="q12" value="C"> Hash Map (Dictionary)</label>
+                <label><input type="radio" name="q12" value="D"> Queue</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>13. If $A = \text{True}$ and $B = \text{False}$, what is the result of: $(\text{NOT } A) \text{ OR } (A \text{ AND } B)$?</p>
+                <label><input type="radio" name="q13" value="A" required> True</label>
+                <label><input type="radio" name="q13" value="B"> False</label>
+                <label><input type="radio" name="q13" value="C"> True for $A \implies B$</label>
+                <label><input type="radio" name="q13" value="D"> Undefined</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="D">
+                <p>14. Statement 1: All QA testers are detail-oriented. Statement 2: Sarah is not detail-oriented. What must be true?</p>
+                <label><input type="radio" name="q14" value="A" required> Sarah is a developer.</label>
+                <label><input type="radio" name="q14" value="B"> All developers are not detail-oriented.</label>
+                <label><input type="radio" name="q14" value="C"> All detail-oriented people are QA testers.</label>
+                <label><input type="radio" name="q14" value="D"> Sarah is not a QA tester.</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>15. If the code `FUNCTION mystery(4, 7)` runs, what is the final `result`?</p>
+                <pre style="color: var(--secondary-text); background: #0A192F; padding: 10px; border-radius: 4px;">FUNCTION mystery(a, b):
+    result = 0
+    FOR i FROM 1 TO a:
+        result = result + b
+    RETURN result</pre>
+                <label><input type="radio" name="q15" value="A" required> 11</label>
+                <label><input type="radio" name="q15" value="B"> 28</label>
+                <label><input type="radio" name="q15" value="C"> 49</label>
+                <label><input type="radio" name="q15" value="D"> 7</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="A">
+                <p>16. A database backup fails 10% of the time. If three independent backups are attempted, what is the probability that **all three** will fail?</p>
+                <label><input type="radio" name="q16" value="A" required> 0.1%</label>
+                <label><input type="radio" name="q16" value="B"> 1%</label>
+                <label><input type="radio" name="q16" value="C"> 3%</label>
+                <label><input type="radio" name="q16" value="D"> 30%</label>
+            </div>
+            
+            <div class="question-container" data-correct-answer="C">
+                <p>17. For a subnet mask of $255.255.255.0$ (a /24 network), how many available host addresses are theoretically possible?</p>
+                <label><input type="radio" name="q17" value="A" required> 256</label>
+                <label><input type="radio" name="q17" value="B"> 255</label>
+                <label><input type="radio" name="q17" value="C"> 254</label>
+                <label><input type="radio" name="q17" value="D"> 128</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>18. A user base doubles every 6 months. If the current architecture handles 10x the current load, how many months until a mandatory architecture upgrade is needed?</p>
+                <label><input type="radio" name="q18" value="A" required> 18 months</label>
+                <label><input type="radio" name="q18" value="B"> 30 months</label>
+                <label><input type="radio" name="q18" value="C"> 20 months (approx.)</label>
+                <label><input type="radio" name="q18" value="D"> 24 months</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="B">
+                <p>19. In a language where strings are 0-indexed, what is the character at index 3 in the string `"SOFTWARE"`?</p>
+                <label><input type="radio" name="q19" value="A" required> F</label>
+                <label><input type="radio" name="q19" value="B"> T</label>
+                <label><input type="radio" name="q19" value="C"> W</label>
+                <label><input type="radio" name="q19" value="D"> A</label>
+            </div>
+
+            <div class="question-container" data-correct-answer="C">
+                <p>20. A potential client asks if your software can do X, which it **cannot** but is planned for release in 6 months. To maximize the sale while maintaining trust, how should you respond?</p>
+                <label><input type="radio" name="q20" value="A" required> "Yes, it can do that."</label>
+                <label><input type="radio" name="q20" value="B"> "No, not right now. Maybe next year."</label>
+                <label><input type="radio" name="q20" value="C"> "It currently does not, but we are launching that exact feature in our Q1 update (6 months)."</label>
+                <label><input type="radio" name="q20" value="D"> "We can custom-build it for an extra fee."</label>
+            </div>
+
+
+            <button type="button" class="cta-button" onclick="calculateScore()">Submit & View Score</button>
+        </form>
+
+        <div id="results">
+            <h2>Challenge Complete!</h2>
+            <p style="color: var(--secondary-text);">Your Final Score is:</p>
+            <span id="score-display">0</span> / 20
+            
+            <p style="margin-top: 30px;"><strong>Share Your Achievement on LinkedIn:</strong></p>
+            <ul id="share-instructions">
+                <li>Click "**Share on LinkedIn**" below.</li>
+                <li>The post text (with your score) and the RockAI Dev logo will appear automatically!</li>
+            </ul>
+            
+            <p id="share-message-text"></p>
+            <button class="copy-text-btn" onclick="copyShareText()">Copy Share Text</button>
+            
+            <a id="linkedin-share-button" class="linkedin-share" href="#" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        // ======================== JavaScript Logic ========================
+
+        const correctAnswers = {
+            q1: 'B', q2: 'A', q3: 'C', q4: 'B', q5: 'B',
+            q6: 'C', q7: 'B', q8: 'C', q9: 'B', q10: 'C',
+            q11: 'B', q12: 'C', q13: 'B', q14: 'D', q15: 'B',
+            q16: 'A', q17: 'C', q18: 'C', q19: 'B', q20: 'C'
+        };
+
+        const totalQuestions = Object.keys(correctAnswers).length;
+        // MUST BE UPDATED to the actual URL after deployment!
+        const testUrl = "https://yourcompany.com/tech-iq-test-01.html"; 
+
+
+        function calculateScore() {
+            const form = document.getElementById('iq-test-form');
+            let score = 0;
+            let allAnswered = true;
+
+            for (const q in correctAnswers) {
+                if (!form.elements[q] || !form.elements[q].value) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+            
+            if (!allAnswered) {
+                alert('Please answer all 20 questions before viewing the score.');
+                return;
+            }
+
+            for (const q in correctAnswers) {
+                if (form.elements[q].value === correctAnswers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('iq-test-form').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+
+            // Generate direct share text (including score and company name)
+            let shareText;
+            if (score === totalQuestions) {
+                shareText = `Perfect Score! I achieved ${score}/${totalQuestions} on the RockAI Dev Tech IQ Challenge - Test 01! Ready for the next level. 🚀`;
+            } else if (score >= totalQuestions * 0.8) {
+                shareText = `Amazing result! I scored ${score}/${totalQuestions} on RockAI Dev's Tech IQ Challenge - Test 01, testing my core logic and algorithms.`;
+            } else {
+                shareText = `I just took RockAI Dev's Tech IQ Challenge - Test 01 and scored ${score}/${totalQuestions}. Think you can beat me?`;
+            }
+            
+            // Append the URL and hashtags to the custom text
+            const finalShareMessage = `${shareText} Take the RockAI Dev challenge now: ${testUrl} #RockAIDev #TechIQ #Programming #Algorithm`;
+
+            // --- NEW: Setting up direct LinkedIn Share link with pre-filled text ---
+            // LinkedIn's official share API only takes URL and Title. It does NOT officially support pre-filling text.
+            // HOWEVER, we will use the standard method to share the URL, and rely on the og:tags for the image.
+            
+            // For platforms that support text pre-fill (like Twitter):
+            // const encodedShareText = encodeURIComponent(finalShareMessage);
+            // const linkedinLink = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedShareText}`; // Not reliable for text
+
+            // Using the standard off-site share which guarantees the URL/Image is shared:
+            const encodedUrl = encodeURIComponent(testUrl);
+            const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+
+            document.getElementById('linkedin-share-button').href = linkedinLink;
+            
+            // We set the text here just in case, but rely on the og:tags for image and title/description.
+            // (Note: The user will still need to manually type/paste the score text if they want it fully custom,
+            // but the logo and link will be correct).
+            document.getElementById('share-message-text').textContent = finalShareMessage;
+        }
+
+        // Removed copyShareText function as it is no longer the primary method
+    </script>
+</body>
+</html>
