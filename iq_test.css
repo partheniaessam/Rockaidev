@@ -1,0 +1,182 @@
+/* ======================== CSS Styles ======================== */
+:root {
+    --primary-dark: #0A192F; 
+    --accent-color: #4A90E2; 
+    --text-light: #F0F0F0; 
+    --secondary-text: #B0C4DE; 
+}
+
+body {
+    background-color: var(--primary-dark);
+    font-family: 'Arial', sans-serif;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden; 
+    position: relative; 
+    text-align: left;
+
+    /* --- FIXED: Static Background Image (images.jpg) --- */
+    background-image: url('images.jpg'); /* Using the exact uploaded filename */
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; 
+    background-blend-mode: multiply; 
+}
+
+/* Overlay for readability */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: -2; 
+}
+
+/* REMOVED: Starry background effects */
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(10, 25, 47, 0.9); 
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(74, 144, 226, 0.3); 
+    position: relative; 
+    z-index: 10; 
+    width: 100%;
+}
+
+h1 {
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+.question-container {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-bottom: 1px solid var(--primary-dark);
+    background-color: #1a2c42; 
+    border-radius: 8px;
+}
+
+.question-container p {
+    font-weight: bold;
+    font-size: 1.05em;
+    margin-bottom: 12px;
+    color: var(--text-light);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    color: var(--secondary-text);
+}
+
+label:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--accent-color);
+}
+
+.cta-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 25px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #79aee8;
+    transform: scale(1.01);
+}
+
+/* Results Section */
+#results {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    background-color: #1a2c42;
+}
+
+#score-display {
+    font-size: 3.5em;
+    color: var(--accent-color);
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 20px;
+    text-shadow: 0 0 15px rgba(74, 144, 226, 0.7);
+}
+
+#share-message-text {
+    border: 1px dashed var(--secondary-text);
+    padding: 15px;
+    margin: 15px auto 25px;
+    background-color: #0A192F;
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    text-align: left;
+    border-radius: 6px;
+    display: block;
+}
+
+.copy-text-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.copy-text-btn:hover {
+    background-color: #777;
+}
+
+.linkedin-share {
+    display: inline-block;
+    background-color: #0077B5; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.linkedin-share:hover {
+    background-color: #0099D4;
+}
